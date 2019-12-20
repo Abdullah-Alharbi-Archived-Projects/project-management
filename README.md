@@ -3,30 +3,43 @@
 users can manage their projects or apps <br />
 they can create new project add cards and tasks in each card
 
-## 🤔 How to install 
+## 🤔 How to install
+
 1. check your ruby version by running this command in the terminal:
+
 ```
 $ ruby -v
 ```
+
 2. remove `Gemfile.lock`
 3. open `Gemfile` and change line 4:
+
 ```
 ruby '<your_ruby_version>'
 ```
-4. run these commands:
+
+4. open `.ruby_version` and change the version there as well
+5. run these commands:
+
 ```
 $ bundle install
 $ yarn install
 ```
-5. don't forget to create the database
+
+6. don't forget to create the database
+
 ```
 $ rails db:create
 ```
-6. run migrations
+
+7. run migrations
+
 ```
 $ rails db:migrate
 ```
-7. run the server
+
+8. run the server
+
 ```
 rails server
 ```
