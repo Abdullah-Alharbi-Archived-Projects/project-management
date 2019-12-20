@@ -7,12 +7,12 @@ they can create new project add cards and tasks in each card
 
 ### 🤩 Front end
 
-- vue.js
-- webpack
-- element ui
+- [vue.js](https://vuejs.org/)
+- [webpack](https://webpack.js.org/)
+- [Element UI](https://element.eleme.io/#/en-US)
 
 ### 💎 Back end
 
-- language: ruby
-- framework: rails
-- database: postgresql
+- language: [Ruby](https://www.ruby-lang.org/en/)
+- framework: [Ruby on Rails](https://rubyonrails.org/)
+- database: [Postgresql](https://www.postgresql.org/)
