@@ -1,24 +1,18 @@
-# README
+# Project Management App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+users can manage their projects or apps <br />
+they can create new project add cards and tasks in each card
 
-Things you may want to cover:
+## 🔥 Technologies
 
-* Ruby version
+### 🤩 Front end
 
-* System dependencies
+- vue.js
+- webpack
+- element ui
 
-* Configuration
+### 💎 Back end
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- language: ruby
+- framework: rails
+- database: postgresql
