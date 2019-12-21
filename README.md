@@ -48,9 +48,9 @@ rails server
 
 ### 🤩 Front end
 
-- [vue.js](https://vuejs.org/)
-- [webpack](https://webpack.js.org/)
-- [Element UI](https://element.eleme.io/#/en-US)
+- Front End Framework: [vue.js](https://vuejs.org/)
+- Bundler: [webpack](https://webpack.js.org/)
+- Component Framework: [Element UI](https://element.eleme.io/#/en-US)
 
 ### 💎 Back end
 
