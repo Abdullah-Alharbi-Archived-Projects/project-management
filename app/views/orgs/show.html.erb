@@ -7,5 +7,7 @@
 <br />
 
 <% @projects.each do |project| %>
-    <%= link_to project.name, org_project_path(params[:id], project) %> <br />
+    <%= link_to project.name, org_project_path(params[:id], project) %> | 
+    <%= link_to  "Edit", edit_org_project_path(params[:id], project) %> | 
+    <%= link_to  "Delete", org_project_path(params[:id], project), remote: true, method: :delete %> <br />
 <% end %>
