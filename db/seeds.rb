@@ -5,10 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Pproject.create([
+Card.create([
     {
-        org_id: 6,
-        name: "First Project",
-        wallpaper: nil
+        pproject_id: 15,
+        title: "To Do",
     }
 ])

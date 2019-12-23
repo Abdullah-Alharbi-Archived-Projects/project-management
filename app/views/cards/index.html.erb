@@ -1,0 +1,14 @@
+<h1>Project: <%= @data[1].name %></h1>
+<br />
+<%= link_to  "Edit Project", edit_org_project_path(params[:org_id], @data[1]) %> |
+<%= link_to  "Delete Project", org_project_path(params[:org_id], @data[1]), remote: true, method: :delete %> |
+<%= link_to  "Add Card", new_org_project_card_path(params[:org_id], @data[1]) %>
+
+
+<% @cards.each do |card| %>
+    <h1>
+        <%= card.title %>
+    </h1>
+
+    <%= link_to  "Delete", org_project_card_path(params[:org_id], @data[1], card), remote: true, method: :delete %>
+<% end %>

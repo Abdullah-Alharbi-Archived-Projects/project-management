@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
     before_action :configure_permitted_update_parameters, if: :devise_controller?
     before_action :save_back, except: [:create, :new]
 
+
     protected
 
     def configure_permitted_parameters
@@ -20,5 +21,11 @@ class ApplicationController < ActionController::Base
 
     def back
         redirect_to session.delete(:return_to)
+    end
+
+    def get_user_data
+        org = current_user.orgs.find(params[:org_id])
+        project = org.pprojects.find(params[:project_id])
+        @data = [org, project]
     end
 end

@@ -7,6 +7,7 @@ class PprojectsController < ApplicationController
     end
 
     def show
+        redirect_to org_project_cards_path(params[:org_id], @project)
     end
 
     def new

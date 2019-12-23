@@ -1,0 +1,9 @@
+<%= form_for( :card, url: link, method: type) do |f| %>
+    <div>
+        <%= f.text_field :title, placeholder: :title %>
+    </div> <br />
+
+    <div>
+        <%= f.submit 'Submit' %>
+    </div>
+<% end %>
