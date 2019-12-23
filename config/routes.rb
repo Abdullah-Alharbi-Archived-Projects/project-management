@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :pprojects
-  resources :orgs
+  resources :orgs do 
+    resources :projects, controller: 'pprojects'
+  end
   devise_for :users
   root 'home#index'
 end

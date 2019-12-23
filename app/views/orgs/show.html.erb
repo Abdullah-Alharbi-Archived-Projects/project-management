@@ -1,1 +1,11 @@
-<%= @org.name %>
+<%= link_to  "Create new project", new_org_project_path(params[:id]) %>
+
+
+<h1>Welcome to, <%= @org.name %></h1>
+
+<h3>Our projects</h3>
+<br />
+
+<% @projects.each do |project| %>
+    <%= link_to project.name, org_project_path(params[:id], project) %> <br />
+<% end %>

@@ -1,6 +1,6 @@
 <%= link_to  "Add Organization", new_org_path %>
 <% @orgs.each do |org| %>
-    <h1><%= org.name %></h1>
+    <h1><%= link_to  org.name, org_path(org) %><h1>
     <h3><%= org.icon %></h3>
     <h3>Owner: <%= org.user.name %></h3>
     <%= link_to  "Edit", edit_org_path(org) %>

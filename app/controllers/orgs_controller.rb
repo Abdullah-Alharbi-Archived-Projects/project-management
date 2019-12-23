@@ -7,6 +7,7 @@ class OrgsController < ApplicationController
     end
 
     def show
+        @projects = @org.pprojects
     end
 
     def new

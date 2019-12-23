@@ -1,0 +1,13 @@
+<%= form_for( :project, url: link, method: type) do |f| %>
+    <div>
+        <%= f.text_field :name, placeholder: :name %>
+    </div> <br />
+
+    <div>
+        <%= f.text_field :wallpaper, placeholder: :wallpaper %>
+    </div> <br />
+
+    <div>
+        <%= f.submit 'Submit' %>
+    </div>
+<% end %>

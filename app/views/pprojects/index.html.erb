@@ -1,0 +1,3 @@
+<% @projects.each do |project| %>
+    <%= link_to  project.name, org_project_path(params[:org_id], project) %>
+<% end %>
