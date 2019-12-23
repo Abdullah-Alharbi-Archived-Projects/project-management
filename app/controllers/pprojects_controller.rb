@@ -1,0 +1,2 @@
+class PprojectsController < ApplicationController
+end
