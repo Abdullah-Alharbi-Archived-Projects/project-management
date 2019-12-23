@@ -1,0 +1,3 @@
+<h1>Add task</h1>
+
+<%= render "tasks/form", { link: org_project_card_tasks_path(params[:org_id], params[:project_id], params[:card_id]), type: :post } %>

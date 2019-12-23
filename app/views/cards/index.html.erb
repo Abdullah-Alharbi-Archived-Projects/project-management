@@ -7,8 +7,17 @@
 
 <% @cards.each do |card| %>
     <h1>
-        <%= card.title %>
+        <%= card.title %> - <%= card.id %> - <%= link_to  "Add Task", new_org_project_card_task_path(params[:org_id], @data[1], card) %>
     </h1>
 
+    <div class="task">
+        <% card.tasks.each do |task| %>
+            <h3><%= task.name %> - <%= task.id %> |
+                <%= link_to  "edit", edit_org_project_card_task_path(params[:org_id], @data[1], card, task) %> |
+                <%= link_to  "delete", org_project_card_task_path(params[:org_id], @data[1], card, task), remote: true, method: :delete %>
+            </h3>
+        <% end %>
+    </div>
+    <%= link_to  "Edit", edit_org_project_card_path(params[:org_id], @data[1], card) %>
     <%= link_to  "Delete", org_project_card_path(params[:org_id], @data[1], card), remote: true, method: :delete %>
 <% end %>

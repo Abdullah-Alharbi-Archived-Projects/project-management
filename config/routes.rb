@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  resources :tasks
   resources :orgs do 
     resources :projects, controller: 'pprojects' do
-      resources :cards
+      resources :cards do
+        resources :tasks
+      end
     end
   end
   devise_for :users

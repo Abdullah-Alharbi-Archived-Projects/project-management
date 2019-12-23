@@ -5,9 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Card.create([
+Task.create([
     {
-        pproject_id: 15,
-        title: "To Do",
+        card_id: 5,
+        name: "Clean my room",
     }
 ])

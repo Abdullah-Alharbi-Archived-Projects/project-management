@@ -1,0 +1,9 @@
+<%= form_for( :task, url: link, method: type) do |f| %>
+    <div>
+        <%= f.text_field :name, placeholder: :name %>
+    </div> <br />
+
+    <div>
+        <%= f.submit 'Submit' %>
+    </div>
+<% end %>

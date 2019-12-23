@@ -1,0 +1,4 @@
+<h1>Edit card</h1>
+
+<%= render "tasks/form", { link: org_project_card_task_path(params[:org_id], params[:project_id], params[:card_id], params[:id]), type: :patch } %>
+
