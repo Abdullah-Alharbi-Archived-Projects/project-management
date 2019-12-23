@@ -1,0 +1,22 @@
+
+<% if notice %>
+    <el-row>
+        <el-col :span="8">
+            <el-alert
+                title="<%= notice %>"
+                type="success"
+                show-icon="true">
+            </el-alert>
+        </el-col>
+    </el-row>
+<% elsif alert %>
+    <el-row>
+        <el-col :span="8">
+            <el-alert
+                title="<%= alert %>"
+                type="warning"
+                show-icon="true">
+            </el-alert>
+        </el-col>
+    </el-row>
+<% end %>

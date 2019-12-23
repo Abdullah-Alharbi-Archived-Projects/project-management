@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Project</title>
+    <title>PMT</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,11 +11,37 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
     <div id="app">
-      <%= yield %>
+      <el-container>
+        <el-header>
+          <el-menu mode="horizontal" class="mb-25">
+          <el-menu-item>
+            <%= link_to  "Home", root_path %>
+          </el-menu-item>
+          <% if user_signed_in? %>
+            <el-menu-item>
+              <%= link_to  "Organization", orgs_path %>
+            </el-menu-item>
+            <el-menu-item>
+              <%= link_to  "Edit", edit_user_registration_path %>
+            </el-menu-item>
+            <el-menu-item>
+              <%= link_to  "Sign out", destroy_user_session_path, method: :delete %>
+            </el-menu-item>
+          <% else %>
+            <el-menu-item>
+              <%= link_to  "Sign in", new_user_session_path %>
+            </el-menu-item>
+          <% end %>
+        </el-menu>
+        </el-header>
+        <el-main>
+          <%= render "layouts/alert" %>
+
+          <%= yield %>
+        </el-main>
+      </el-container>
+
     </div>
   </body>
 </html>

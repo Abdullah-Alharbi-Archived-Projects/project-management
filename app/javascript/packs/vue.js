@@ -53,17 +53,28 @@
 
 import TurbolinksAdapter from "vue-turbolinks";
 import Vue from "vue/dist/vue.esm";
+import ElementyUI from "element-ui";
+import "element-ui/lib/theme-chalk/index.css";
 import App from "../app.vue";
+import SignInForm from "../SignInForm.vue";
 
+Vue.use(ElementyUI);
 Vue.use(TurbolinksAdapter);
+Vue.component("sign-in", SignInForm);
 
 document.addEventListener("turbolinks:load", () => {
   const app = new Vue({
     el: "#app",
     data: () => {
       return {
-        message: "Can you say hello?"
+        activeIndex: "1",
+        activeIndex2: "1"
       };
+    },
+    methods: {
+      handleSelect(key, keyPath) {
+        console.log(key, keyPath);
+      }
     },
     components: { App }
   });
