@@ -1,6 +1,6 @@
 # Project Management App
 
-this project is a clone of trello.
+**this project is a clone of trello.**
 
 ## 🤔 How to install
 
