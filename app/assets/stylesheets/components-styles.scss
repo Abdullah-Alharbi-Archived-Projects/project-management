@@ -1,0 +1,141 @@
+.card {
+  background-color: #dfe6e9;
+  margin: 0;
+  padding: 0 15px;
+  overflow-y: auto;
+  height: auto;
+  max-height: 500px;
+  position: relative;
+}
+.sticky-top {
+  position: sticky;
+  top: 0;
+}
+.sticky-bottom {
+  position: sticky;
+  bottom: 0;
+}
+.card-title {
+  background-color: #74b9ff;
+  color: #fff;
+  width: 100%;
+  padding: 8px;
+}
+
+.tasks {
+  margin-top: 10px;
+}
+.background {
+  padding: 5px;
+  background-color: #636e72;
+}
+
+.w-100 {
+  width: 100%;
+}
+.p-5 {
+  padding: 15px;
+}
+.ml-15 {
+  margin-left: 15px;
+}
+
+.new-task {
+  padding: 8px;
+  font-size: 18px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border: none;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.sign-in {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+.bg-white {
+  padding: 18px;
+  background: #fff !important;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  justify-content: center;
+}
+.sign-in,
+.container {
+  height: 100% !important;
+}
+.email {
+  margin-bottom: 15px;
+}
+
+.password {
+  margin-bottom: 15px;
+}
+
+.remember {
+  margin-bottom: 15px;
+}
+
+.mt-5 {
+  margin-top: 5px;
+}
+
+.sign-up {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+.bg-white {
+  padding: 18px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  justify-content: center;
+}
+.sign-up,
+.container {
+  height: 100% !important;
+}
+.mb-15 {
+  margin-bottom: 15px;
+}
+
+.mt-5 {
+  margin-top: 5px;
+}
+
+.task {
+  background-color: #636e72;
+  color: #ffffff;
+  margin: 0;
+  padding: 10px;
+  margin-bottom: 15px;
+  width: 95%;
+  font-size: 18px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.input {
+  padding: 8px;
+  font-size: 18px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border: none;
+  outline: none;
+  margin: 0 15px;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fz-18 {
+  font-size: 18px;
+}
