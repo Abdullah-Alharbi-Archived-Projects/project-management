@@ -4,7 +4,7 @@ class CardsController < ApplicationController
     before_action :find_card, except: [:index, :new, :create]
 
     def index
-        @cards = @data[1].cards
+        @cards = @data[1].cards.sorted
     end
 
     def show
@@ -17,6 +17,10 @@ class CardsController < ApplicationController
     def create
         @card = @data[1].cards.create(card_params)
         redirect_to org_project_path(params[:org_id], params[:project_id])
+
+        # respond_to do |format|
+        #     format.html { render org_project_path(params[:org_id], params[:project_id]) }
+        # end
     end
 
     def edit

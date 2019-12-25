@@ -1,10 +1,10 @@
 <template>
-  <div class="sign-in">
+  <div class="sign-up">
     <div class="container">
       <div class="bg-white">
-        <h2 class="mb-25">Sign in</h2>
+        <h2 class="mb-25">Sign up</h2>
 
-        <div class="email">
+        <div class="email mb-15">
           <el-input
             placeholder="Email"
             name="user[email]"
@@ -15,9 +15,31 @@
           ></el-input>
         </div>
 
-        <div class="password">
+        <div class="name mb-15">
           <el-input
-            placeholder="Please input password"
+            placeholder="Name"
+            name="user[name]"
+            id="user_name"
+            v-model="inputs.name"
+            type="text"
+            clearable
+          ></el-input>
+        </div>
+
+        <div class="avatar mb-15">
+          <el-input
+            placeholder="Avatar"
+            name="user[avatar]"
+            id="user_avatar"
+            v-model="inputs.avatar"
+            type="text"
+            clearable
+          ></el-input>
+        </div>
+
+        <div class="password mb-15">
+          <el-input
+            placeholder="Password"
             name="user[password]"
             id="user_password"
             v-model="inputs.password"
@@ -25,24 +47,27 @@
           ></el-input>
         </div>
 
-        <div class="remember">
-          <el-checkbox v-model="checked" name="user[remember_me]" id="user_remember_me">Remember Me</el-checkbox>
-          <div class="mt-5">
-            <el-link type="warning" href="/users/password/new/">Forgot password ?</el-link>
-          </div>
+        <div class="password_confirmation mb-15">
+          <el-input
+            placeholder="Password"
+            name="user[password_confirmation]"
+            id="user_password_confirmation"
+            v-model="inputs.password_confirm"
+            show-password
+          ></el-input>
         </div>
 
         <div class="submit">
           <el-row justify="space-between" :gutter="20">
             <el-col :span="6">
-              <el-button native-type="submit">Sign in</el-button>
+              <el-button native-type="submit">Sign up</el-button>
             </el-col>
             <el-col :span="6" :offset="11">
               <el-button
                 native-type="submit"
                 type="primary"
-                @click.prevent="redirect_to_sign_up"
-              >Sign up</el-button>
+                @click.prevent="redirect_to_sign_in"
+              >Sign in</el-button>
             </el-col>
           </el-row>
         </div>
@@ -53,26 +78,29 @@
 
 <script>
 export default {
-  name: "sign-in",
+  name: "sign-up",
   data() {
     return {
       inputs: {
         email: "",
-        password: ""
+        name: "",
+        avatar: "",
+        password: "",
+        password_confirm: ""
       },
       checked: false
     };
   },
   methods: {
-    redirect_to_sign_up() {
-      window.location.href = "/users/sign_up";
+    redirect_to_sign_in() {
+      window.location.href = "/users/sign_in";
     }
   }
 };
 </script>
 
 <style scoped>
-.sign-in {
+.sign-up {
   /* width: 250px; */
   display: flex;
   flex-direction: column;
@@ -91,19 +119,11 @@ export default {
   width: 400px;
   justify-content: center;
 }
-.sign-in,
+.sign-up,
 .container {
   height: 100% !important;
 }
-.email {
-  margin-bottom: 15px;
-}
-
-.password {
-  margin-bottom: 15px;
-}
-
-.remember {
+.mb-15 {
   margin-bottom: 15px;
 }
 

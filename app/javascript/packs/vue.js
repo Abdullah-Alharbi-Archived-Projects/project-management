@@ -57,10 +57,18 @@ import ElementyUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 import App from "../app.vue";
 import SignInForm from "../SignInForm.vue";
+import SignUpForm from "../SignUpForm.vue";
+import cards from "../cards.vue";
+// import VueAxios from "vue-axios";
 
-Vue.use(ElementyUI);
+// Vue.use(VueAxios, axios);
 Vue.use(TurbolinksAdapter);
+Vue.use(ElementyUI);
+
+// my custom components
 Vue.component("sign-in", SignInForm);
+Vue.component("sign-up", SignUpForm);
+Vue.component("cards", cards);
 
 document.addEventListener("turbolinks:load", () => {
   const app = new Vue({

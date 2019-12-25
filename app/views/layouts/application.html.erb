@@ -5,6 +5,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap-grid.css" integrity="sha256-ioAA5G7gdssuN24SL2ByxTMiyg5m5PnP3I4TS5hNIYA=" crossorigin="anonymous" />
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'vue' %>
@@ -14,34 +16,30 @@
     <div id="app">
       <el-container>
         <el-header>
-          <el-menu mode="horizontal" class="mb-25">
-          <el-menu-item>
-            <%= link_to  "Home", root_path %>
-          </el-menu-item>
-          <% if user_signed_in? %>
-            <el-menu-item>
-              <%= link_to  "Organization", orgs_path %>
-            </el-menu-item>
-            <el-menu-item>
-              <%= link_to  "Edit", edit_user_registration_path %>
-            </el-menu-item>
-            <el-menu-item>
-              <%= link_to  "Sign out", destroy_user_session_path, method: :delete %>
-            </el-menu-item>
-          <% else %>
-            <el-menu-item>
-              <%= link_to  "Sign in", new_user_session_path %>
-            </el-menu-item>
-          <% end %>
-        </el-menu>
+          <div class="navbar">
+            <div>
+              <%= link_to  "Home", root_path %>
+              <% if user_signed_in? %>
+                <%= link_to  "Organization", orgs_path %>
+              <% end %> 
+            </div>
+            <div class="left">
+              <% if user_signed_in? %>
+                  <strong>Welcome, <%= current_user.name %></strong>
+                  <%= link_to  "Sign out", destroy_user_session_path, method: :delete %>
+              <% else %>
+                  <%= link_to  "Sign in", new_user_session_path %>
+              <% end %>
+            </div>
+          </div>
         </el-header>
+
         <el-main>
           <%= render "layouts/alert" %>
 
           <%= yield %>
         </el-main>
       </el-container>
-
     </div>
   </body>
 </html>

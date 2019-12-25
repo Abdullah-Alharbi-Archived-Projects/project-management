@@ -1,0 +1,26 @@
+<%
+=begin%>
+ <%= link_to  "edit", edit_org_project_card_task_path(params[:org_id], @data[1], card, task) %> |
+                <%= link_to  "delete", org_project_card_task_path(params[:org_id], @data[1], card, task), remote: true, method: :delete %>
+ 
+<%
+=end%>
+
+
+
+
+
+<%
+=begin%>
+ 
+<%= link_to  "Add Task", new_org_project_card_task_path(params[:org_id], @data[1], card) %> |
+        <%= link_to  "Edit", edit_org_project_card_path(params[:org_id], @data[1], card) %> |
+        <%= link_to  "Delete", org_project_card_path(params[:org_id], @data[1], card), remote: true, method: :delete %> 
+<%
+=end%>
+
+<% @cards.each do |card| %>
+        <div class="col-3">
+            <%= card.title %>
+        </div>
+<% end %>

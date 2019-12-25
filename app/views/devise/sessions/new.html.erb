@@ -1,5 +1,9 @@
-<div class="bgi" style="background-image: url('<%= asset_path  "sign_in.jpg" %>');">
-</div>
+<%
+=begin%>
+ <div class="bgi" style="background-image: url('<%= asset_path  "sign_in.jpg" %>');">
+</div> 
+<%
+=end%>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <%
