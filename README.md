@@ -57,7 +57,7 @@ rails server
 - Framework: [Ruby on Rails](https://rubyonrails.org/)
 - Database: [Postgresql](https://www.postgresql.org/)
 
-### ✔️ Features
+## ✔️ Features
 
 1. [x] **Authentication.**
 2. [x] **Create organization, edit organization, delete organization.**
@@ -66,7 +66,7 @@ rails server
 5. [x] **Create tasks in card, edit task, delete task using javascript.**
 6. [x] **Drag tasks to another card.**
 
-### 🗒️ User stories
+## 🗒️ User stories
 
 #### Account:
 
@@ -99,7 +99,7 @@ rails server
 3. As a user i want to delete a task
 4. As a user i want to comment on a task
 
-### Wireframes
+## Wireframes
 
 ![sign_in](https://i.imgur.com/qghG8pB.png)
 ![sign_up](https://i.imgur.com/Di0MzCI.png)
@@ -107,6 +107,6 @@ rails server
 ![add_organization](https://i.imgur.com/FELUNWV.png)
 ![tasks](https://i.imgur.com/l2pVjRO.png)
 
-### Entity Relationship Diagram
+## Entity Relationship Diagram
 
 ![erd](https://i.imgur.com/hzcBfOJ.jpg)
