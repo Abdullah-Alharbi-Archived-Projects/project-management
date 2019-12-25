@@ -1,12 +1,15 @@
 
 <div class="navbar m-0 mb-5">
     <div>
+            <%= link_to  "Back", orgs_path %>
         <h3>
             Welcome to, <%= @org.name %>
         </h3>
     </div>
-    <div class="left w-sm">
-        <%= link_to  "Create new project", new_org_project_path(params[:id]), class: 'el-button el-button--primary is-plain' %>
+    <div class="left">
+        <%= link_to  "Create new project", new_org_project_path(params[:id]), class: 'el-button el-button--default is-plain' %>
+        <%= link_to  "Edit", edit_org_path(@org), class: 'el-button el-button--primary is-plain' %>
+        <%= link_to  "Delete", org_path(@org), remote: true, method: :delete, class: 'el-button el-button--danger is-plain mr-5' %>
     </div>
 </div>
 

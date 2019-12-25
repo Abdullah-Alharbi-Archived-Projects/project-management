@@ -9,6 +9,7 @@
             placeholder="Edit Card name"
             v-model="card.title"
             @keyup.enter="enter"
+            @keyup.esc="editCard = false"
             class="input"
             :autofocus="true"
           />
@@ -37,7 +38,7 @@
       </div>
     </draggable>
 
-    <div class="sticky-bottom background">
+    <div class="sticky-bottom background add-task">
       <create-task :card="card" @update-tasks="addTask"></create-task>
     </div>
   </div>
@@ -132,10 +133,11 @@ export default {
 .card {
   background-color: #dfe6e9;
   margin: 0;
-  padding: 0 15px;
+  padding: 0;
   overflow-y: auto;
-  height: auto;
-  max-height: 500px;
+  height: 700px;
+  max-height: 700px;
+  min-width: 300px;
   position: relative;
 }
 .sticky-top {
@@ -151,13 +153,26 @@ export default {
   color: #fff;
   width: 100%;
   padding: 8px;
+  font-size: 18px;
+  border-radius: 4px 4px 0 0;
 }
 
 .tasks {
   margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .background {
   padding: 5px;
   background-color: #636e72;
+  border-radius: 0 0 4px 4px;
+}
+
+.add-task {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

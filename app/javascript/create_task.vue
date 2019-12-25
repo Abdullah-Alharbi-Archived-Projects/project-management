@@ -1,13 +1,11 @@
 <template>
-  <div>
-    <input
-      type="text"
-      placeholder="add new task (Press Enter to add)..."
-      v-model="task_name"
-      @keyup.enter="_create(card)"
-      class="new-task"
-    />
-  </div>
+  <input
+    type="text"
+    placeholder="add new task (Press Enter to add)..."
+    v-model="task_name"
+    @keyup.enter="_create(card)"
+    class="new-task"
+  />
 </template>
 
 <script>
@@ -49,7 +47,8 @@ export default {
   font-size: 18px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   border: none;
-  margin-bottom: 15px;
+  margin: 0;
   width: 100%;
+  outline: none;
 }
 </style>

@@ -1,7 +1,7 @@
 // Place all the styles related to the Orgs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-input[type="text"] {
+input[type="text"]:not(.new-task) {
   width: 250px;
 }
 

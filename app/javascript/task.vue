@@ -1,7 +1,8 @@
 <template>
   <div class="task" @dblclick="onDbClick">
     <strong>id: {{ task.id }}</strong>
-    <div class="name" v-if="!editMode">{{ task.name }}</div>
+    <br />
+    <strong class="name" v-if="!editMode">{{ task.name }}</strong>
     <div class="edit-mode" v-else>
       <div class="flex">
         <input
@@ -9,6 +10,7 @@
           placeholder="Edit Task name"
           v-model="task.name"
           @keyup.enter="enter"
+          @keyup.esc="editMode = false"
           class="input"
           :autofocus="true"
         />
