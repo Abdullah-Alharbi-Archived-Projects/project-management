@@ -66,7 +66,7 @@ rails server
 5. [x] Create tasks in card, edit task, delete task using javascript.
 6. [x] Drag tasks to another card.
 
-### User stories
+### 🗒️ User stories
 
 #### Account:
 
