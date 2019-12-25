@@ -1,5 +1,6 @@
 class PprojectsController < ApplicationController
     before_action :authenticate_user!
+    skip_before_action :verify_authenticity_token
     before_action :get_user_projects
     before_action :find_project, except: [:index, :new, :create]
 
@@ -26,12 +27,16 @@ class PprojectsController < ApplicationController
     def update
         @project.update(project_params)
 
-        redirect_to org_project_path(@project)
+        redirect_to org_project_path(params[:org_id], @project)
     end
 
     def destroy
         @project.destroy
-        redirect_to org_path(params[:org_id])
+        # redirect_to org_path(params[:org_id])
+        respond_to do |format|
+            format.html
+            format.json  { render :json => @task, status => :okay } # don't do msg.to_json
+          end
     end
 
     private

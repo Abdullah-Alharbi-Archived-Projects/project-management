@@ -1,13 +1,33 @@
-<%= link_to  "Create new project", new_org_project_path(params[:id]) %>
+
+<div class="navbar m-0 mb-5">
+    <div>
+        <h3>
+            Welcome to, <%= @org.name %>
+        </h3>
+    </div>
+    <div class="left w-sm">
+        <%= link_to  "Create new project", new_org_project_path(params[:id]), class: 'el-button el-button--primary is-plain' %>
+    </div>
+</div>
 
 
-<h1>Welcome to, <%= @org.name %></h1>
 
-<h3>Our projects</h3>
-<br />
-
-<% @projects.each do |project| %>
-    <%= link_to project.name, org_project_path(params[:id], project) %> | 
-    <%= link_to  "Edit", edit_org_project_path(params[:id], project) %> | 
-    <%= link_to  "Delete", org_project_path(params[:id], project), remote: true, method: :delete %> <br />
-<% end %>
+<div class="row orgs">
+    <% @projects.each do |project| %>
+            <el-card :body-style="{ padding: '0px' }" shadow="hover">
+                <% if project.wallpaper != '' %>
+                    <img src="<%= project.wallpaper %>" class="image w-300">
+                <% else %>
+                    <img src="https://via.placeholder.com/300x300" class="image">
+                <% end %>
+                <div style="padding: 14px;">
+                <strong><%= project.name %></strong>
+                <div class="bottom clearfix">
+                    <div class="extra flex-end">
+                        <%= link_to  'Visit', org_project_path(params[:id], project), class: 'el-button button el-button--text' %>
+                    </div>
+                </div>
+            </div>
+        </el-card>
+    <% end %>
+</div>

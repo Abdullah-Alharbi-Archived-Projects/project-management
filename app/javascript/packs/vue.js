@@ -59,7 +59,8 @@ import App from "../app.vue";
 import SignInForm from "../SignInForm.vue";
 import SignUpForm from "../SignUpForm.vue";
 import cards from "../cards.vue";
-// import VueAxios from "vue-axios";
+import add_card from "../add_card.vue";
+import axios from "axios";
 
 // Vue.use(VueAxios, axios);
 Vue.use(TurbolinksAdapter);
@@ -69,19 +70,28 @@ Vue.use(ElementyUI);
 Vue.component("sign-in", SignInForm);
 Vue.component("sign-up", SignUpForm);
 Vue.component("cards", cards);
+Vue.component("add-card", add_card);
 
 document.addEventListener("turbolinks:load", () => {
   const app = new Vue({
     el: "#app",
     data: () => {
       return {
-        activeIndex: "1",
-        activeIndex2: "1"
+        visible: false,
+        editProject: false,
+        destroyProject: false
       };
     },
     methods: {
-      handleSelect(key, keyPath) {
-        console.log(key, keyPath);
+      async _destroyProject(path, to) {
+        try {
+          const response = await axios.delete(path);
+          console.log(response);
+
+          window.location.href = to;
+        } catch (error) {
+          console.log(error);
+        }
       }
     },
     components: { App }

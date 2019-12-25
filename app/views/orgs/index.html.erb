@@ -1,9 +1,37 @@
-<%= link_to  "Add Organization", new_org_path %>
-<% @orgs.each do |org| %>
-    <h1><%= link_to  org.name, org_path(org) %><h1>
-    <h3><%= org.icon %></h3>
-    <h3>Owner: <%= org.user.name %></h3>
-    <%= link_to  "Edit", edit_org_path(org) %>
-    <%= link_to  "Delete", org_path(org), remote: true, method: :delete %>
-    <hr />
-<% end %>
+<div class="abs-left">
+    <%= link_to  "Add Organization", new_org_path, class: 'el-button el-button--primary is-plain' %>
+</div>
+
+<div class="row orgs">
+    <% @orgs.each do |org| %>
+            <el-card :body-style="{ padding: '0px' }" shadow="hover">
+                <% if org.icon != '' %>
+                    <img src="<%= org.icon %>" class="image w-400">
+                <% else %>
+                    <img src="https://via.placeholder.com/400x400" class="image">
+                <% end %>
+                <div style="padding: 14px;">
+                <strong><%= org.name %></strong>
+                <div class="bottom clearfix">
+                    <div class="extra">
+                        <% if current_user.id != org.user_id %>
+                        <strong>Owner: <%= org.user.name %></strong>
+                        <% else %>
+                        <div class="actions">
+                            <ul>
+                                <li class="mr-3">
+                                    <%= link_to  "Edit", edit_org_path(org), class: 'el-button el-button--default' %>
+                                </li>
+                                <li>
+                                    <%= link_to  "Delete", org_path(org), remote: true, method: :delete, class: 'el-button el-button--danger' %>
+                                </li>
+                            </ul>
+                        </div>
+                        <% end %>
+                        <%= link_to  'Visit', org_path(org), class: 'el-button button el-button--text' %>
+                    </div>
+                </div>
+            </div>
+        </el-card>
+    <% end %>
+</div>

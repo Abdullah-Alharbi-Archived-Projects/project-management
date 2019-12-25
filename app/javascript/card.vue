@@ -30,15 +30,10 @@
       @change="log"
       @start="drag = true"
       @end="drag = false"
-      @move="move"
       :group="{ name: 'card', pull: true, put: true }"
     >
       <div v-for="task in card.tasks" :key="task.id" class="tasks">
-        <task
-          :task="task"
-          @update-task="updateTask"
-          @delete-task="destroyTask"
-        ></task>
+        <task :task="task" @update-task="updateTask" @delete-task="destroyTask"></task>
       </div>
     </draggable>
 
@@ -86,29 +81,22 @@ export default {
         .then(response => response.json())
         .catch(err => console.log);
     },
-    log(data) {
-      if (data.added) {
-        const task = data.added.element;
-        task.position = data.added.newIndex;
-        const url = this.generate(task);
+    log({ added, moved }) {
+      if (added) {
+        this._send(added);
+      }
 
-        fetch(url, {
-          method: "PATCH",
-          body: urlencoded({
-            task: { name: task.name, position: task.position }
-          }),
-          headers: { "Content-Type": "application/x-www-form-urlencoded" }
-        })
-          .then(response => response.json())
-          .then(data => console.log(data, this.$props.card))
-          .catch(err => console.log);
+      if (moved) {
+        this._send(moved);
+        console.log(moved);
       }
     },
-    generate({ id, card_id }) {
-      return window.location.href + `/${card_id}/tasks/${id}`;
-    },
-    move(data) {
-      console.log(data);
+    _send(data) {
+      const task = data.element;
+      task.position = data.newIndex;
+      console.log(task.position);
+
+      this.$emit("moved-task", task); // raise event to parent
     },
     onDbClick() {
       this.$data.editCard = true;

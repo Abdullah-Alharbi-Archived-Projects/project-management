@@ -4,3 +4,54 @@
 input[type="text"] {
   width: 250px;
 }
+
+.abs-left {
+  position: absolute;
+  right: 25px;
+}
+
+.orgs {
+  padding: 15px;
+}
+
+.bottom {
+  margin-top: 13px;
+  line-height: 12px;
+}
+
+.image {
+  width: 100%;
+  display: block;
+}
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.extra {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  .actions {
+    width: 95%;
+
+    ul {
+      display: flex;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+  }
+}
+
+.flex-end {
+  justify-content: flex-end;
+}

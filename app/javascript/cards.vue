@@ -5,6 +5,7 @@
         :card="card"
         @update-card="updateCard"
         @delete-card="destroyCard"
+        @moved-task="movedTask"
       ></card>
     </div>
   </div>
@@ -23,6 +24,31 @@ export default {
     };
   },
   methods: {
+    movedTask(task) {
+      let card = {};
+
+      this.$data.cards.forEach(c => {
+        c.tasks.forEach(t => {
+          if (t.id === task.id) {
+            card = c;
+          }
+        });
+      });
+
+      console.log(card, task);
+
+      // update task card_id and position
+      fetch(window.location.href + `/${task.card_id}/tasks/${task.id}`, {
+        method: "PATCH",
+        body: urlencoded({
+          task: { name: task.name, card_id: card.id, position: task.position }
+        }),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" }
+      })
+        .then(response => response.json())
+        .then(data => console.log(data, this.$props.card))
+        .catch(err => console.log);
+    },
     updateCard(card) {
       fetch(window.location.href + `/${card.id}/`, {
         method: "PATCH",
