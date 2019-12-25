@@ -1,7 +1,6 @@
 # Project Management App
 
-users can manage their projects or apps <br />
-they can create new project add cards and tasks in each card
+this project is a clone of trello.
 
 ## 🤔 How to install
 
@@ -48,12 +47,52 @@ rails server
 
 ### 🤩 Front end
 
-- Front End Framework: [vue.js](https://vuejs.org/)
-- Bundler: [webpack](https://webpack.js.org/)
+- Front End Framework: [Vue.js](https://vuejs.org/)
+- Bundler: [Webpack](https://webpack.js.org/)
 - Component Framework: [Element UI](https://element.eleme.io/#/en-US)
 
 ### 💎 Back end
 
-- language: [Ruby](https://www.ruby-lang.org/en/)
-- framework: [Ruby on Rails](https://rubyonrails.org/)
-- database: [Postgresql](https://www.postgresql.org/)
+- Language: [Ruby](https://www.ruby-lang.org/en/)
+- Framework: [Ruby on Rails](https://rubyonrails.org/)
+- Database: [Postgresql](https://www.postgresql.org/)
+
+### Features
+
+1. [x] Authentication.
+2. [x] Create organization, edit organization, delete organization.
+3. [x] Create many projects for organization, edit project, delete project.
+4. [x] Create Cards, edit card, delete card using javascript.
+5. [x] Create tasks in card, edit task, delete task using javascript.
+6. [x] Drag tasks to another card.
+
+### User stories
+
+#### Account:
+
+1. As a user i want to create a new account
+2. As a user i want to login to my account
+3. As a user i want to edit my account
+
+#### Projects:
+
+1. As a user i want to create a new project
+2. As a user i want to edit project details
+3. As a user i want to delete project
+
+#### Cards:
+
+1. As a user i want to create a new card
+2. As a user i want to edit a card
+3. As a user i want to delete a card
+
+#### Tasks:
+
+1. As a user i want to add a task for a specific card
+2. As a user i want to edit a task
+3. As a user i want to delete a task
+4. As a user i want to comment on a task
+
+### Entity Relationship Diagram
+
+![erd](https://i.imgur.com/hzcBfOJ.jpg)
