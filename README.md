@@ -74,6 +74,12 @@ rails server
 2. As a user i want to login to my account
 3. As a user i want to edit my account
 
+#### Organization:
+
+1. As a user i want to create a new organization
+2. As a user i want to edit organization
+3. As a user i want to delete organization
+
 #### Projects:
 
 1. As a user i want to create a new project
@@ -92,6 +98,14 @@ rails server
 2. As a user i want to edit a task
 3. As a user i want to delete a task
 4. As a user i want to comment on a task
+
+### Wireframes
+
+![sign_in](https://i.imgur.com/qghG8pB.png)
+![sign_up](https://i.imgur.com/Di0MzCI.png)
+![organization](https://i.imgur.com/Rcvdstu.png)
+![add_organization](https://i.imgur.com/FELUNWV.png)
+![tasks](https://i.imgur.com/l2pVjRO.png)
 
 ### Entity Relationship Diagram
 
