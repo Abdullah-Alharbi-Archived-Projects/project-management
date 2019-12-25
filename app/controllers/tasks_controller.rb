@@ -17,9 +17,12 @@ class TasksController < ApplicationController
     end
 
     def create
-        @data[1].cards.find(params[:card_id]).tasks.create(task_params)
+        @task = @data[1].cards.find(params[:card_id]).tasks.create(task_params)
 
-        redirect_to org_project_cards_path(params[:org_id], params[:project_id])
+        respond_to do |format|
+          format.html
+          format.json  { render :json => @task } # don't do msg.to_json
+        end
     end
 
     def edit
@@ -28,13 +31,19 @@ class TasksController < ApplicationController
     def update
         @task.update(task_params)
 
-        redirect_to org_project_cards_path(params[:org_id], params[:project_id])
+        respond_to do |format|
+            format.html
+            format.json  { render :json => @task } # don't do msg.to_json
+          end
     end
 
     def destroy
         @task.destroy
 
-        redirect_to org_project_cards_path(params[:org_id], params[:project_id])
+        respond_to do |format|
+            format.html
+            format.json  { render :json => @task, status => :okay } # don't do msg.to_json
+          end
     end
 
     private
@@ -43,6 +52,6 @@ class TasksController < ApplicationController
     end
 
     def task_params
-        params.require(:task).permit(:name)
+        params.require(:task).permit(:name, :position)
     end
 end

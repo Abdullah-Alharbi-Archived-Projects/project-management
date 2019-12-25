@@ -67,7 +67,8 @@
                 native-type="submit"
                 type="primary"
                 @click.prevent="redirect_to_sign_in"
-              >Sign in</el-button>
+                >Sign in</el-button
+              >
             </el-col>
           </el-row>
         </div>
@@ -101,17 +102,13 @@ export default {
 
 <style scoped>
 .sign-up {
-  /* width: 250px; */
   display: flex;
   flex-direction: column;
   justify-items: center;
   align-items: center;
 }
 .bg-white {
-  /* background: #ffffffb7; */
   padding: 18px;
-  /* box-shadow: 0 0 8px #fff; */
-  /* border-radius: 4px; */
 }
 .container {
   display: flex;

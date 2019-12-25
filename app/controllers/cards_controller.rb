@@ -1,5 +1,6 @@
 class CardsController < ApplicationController
     before_action :authenticate_user!
+    skip_before_action :verify_authenticity_token
     before_action :get_user_data
     before_action :find_card, except: [:index, :new, :create]
 
@@ -29,13 +30,18 @@ class CardsController < ApplicationController
     def update
         @card.update(card_params)
 
-        redirect_to org_project_cards_path(params[:org_id], params[:project_id])
+        respond_to do |format|
+            format.html
+            format.json  { render :json => @card } # don't do msg.to_json
+          end
     end
 
     def destroy
         @card.destroy
-
-        redirect_to org_project_cards_path(params[:org_id], params[:project_id])
+        respond_to do |format|
+            format.html
+            format.json  { render :json => @card } # don't do msg.to_json
+          end
     end
 
     private

@@ -26,9 +26,16 @@
         </div>
 
         <div class="remember">
-          <el-checkbox v-model="checked" name="user[remember_me]" id="user_remember_me">Remember Me</el-checkbox>
+          <el-checkbox
+            v-model="checked"
+            name="user[remember_me]"
+            id="user_remember_me"
+            >Remember Me</el-checkbox
+          >
           <div class="mt-5">
-            <el-link type="warning" href="/users/password/new/">Forgot password ?</el-link>
+            <el-link type="warning" href="/users/password/new/"
+              >Forgot password ?</el-link
+            >
           </div>
         </div>
 
@@ -42,7 +49,8 @@
                 native-type="submit"
                 type="primary"
                 @click.prevent="redirect_to_sign_up"
-              >Sign up</el-button>
+                >Sign up</el-button
+              >
             </el-col>
           </el-row>
         </div>
@@ -73,17 +81,14 @@ export default {
 
 <style scoped>
 .sign-in {
-  /* width: 250px; */
   display: flex;
   flex-direction: column;
   justify-items: center;
   align-items: center;
 }
 .bg-white {
-  /* background: #ffffffb7; */
   padding: 18px;
-  /* box-shadow: 0 0 8px #fff; */
-  /* border-radius: 4px; */
+  background: #fff !important;
 }
 .container {
   display: flex;

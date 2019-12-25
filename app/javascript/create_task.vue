@@ -5,6 +5,7 @@
       placeholder="add new task (Press Enter to add)..."
       v-model="task_name"
       @keyup.enter="_create(card)"
+      class="new-task"
     />
   </div>
 </template>
@@ -14,7 +15,7 @@ import axios from "axios";
 
 export default {
   name: "add-task",
-  props: ["card", "tasks"],
+  props: ["card"],
   data() {
     return {
       task_name: ""
@@ -23,19 +24,16 @@ export default {
   methods: {
     async _create({ id: card_id }) {
       const task = {
-        card_id,
         name: this.$data.task_name
       };
 
       try {
         const response = await axios.post(
-          window.location.pathname + `/${card_id}/tasks/`,
+          window.location.pathname + `/${card_id}/tasks.json`,
           task
         );
-        console.log(response, task);
-
-        // this.$props.tasks.push(task);
-        this.$emit("update-tasks", task);
+        console.log(response);
+        this.$emit("update-tasks", response.data);
         this.$data.task_name = ""; // clear input
       } catch (error) {
         console.log(error, window.location.pathname + `/${card_id}/tasks/`);
@@ -45,4 +43,13 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.new-task {
+  padding: 8px;
+  font-size: 18px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border: none;
+  margin-bottom: 15px;
+  width: 100%;
+}
+</style>

@@ -1,60 +1,62 @@
 <template>
-  <div class="row w-100">
-    <div v-for="card in cards" :key="card.id" class="card col-3 ml-15">
-      <card :card="card"></card>
-
-      <div v-for="task in card.tasks" :key="task.id" class="tasks">
-        <task :task="task"></task>
-      </div>
-
-      <create-task :card="card" :tasks="tasks" @update-tasks="addTask"></create-task>
+  <div class="row w-100 p-5">
+    <div v-for="card in cards" :key="card.id" class="col-3 ml-15">
+      <card
+        :card="card"
+        @update-card="updateCard"
+        @delete-card="destroyCard"
+      ></card>
     </div>
   </div>
 </template>
 
 <script>
-import Task from "./task";
-import CreateTask from "./create_task";
 import Card from "./card";
+import fetch from "node-fetch";
+import urlencoded from "form-urlencoded";
 
 export default {
   name: "cards",
   data() {
     return {
-      cards: [],
-      tasks: []
+      cards: []
     };
   },
   methods: {
-    addTask(task) {
-      const card = this.$data.cards.filter(c => c.id === task.card_id)[0];
-      card.tasks.push(task);
+    updateCard(card) {
+      fetch(window.location.href + `/${card.id}/`, {
+        method: "PATCH",
+        body: urlencoded({
+          card: { title: card.title, position: card.position }
+        }),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" }
+      })
+        .then(response => response.json())
+        .catch(err => console.log);
+    },
+    destroyCard(card) {
+      const cards = this.$data.cards.filter(c => c.id !== card.id);
+      this.$data.cards = cards;
     }
   },
   created() {
     var element = document.querySelector("#cards");
     var data = element ? JSON.parse(element.dataset.cards) : null;
     this.$data.cards = data;
+    element.remove();
   },
-  components: { Task, Card, CreateTask }
+  components: { Card }
 };
 </script>
 
 <style>
-.card {
-  background-color: #dfe6e9;
-  margin: 0;
-  padding: 0;
-}
-
 .w-100 {
   width: 100%;
 }
-
+.p-5 {
+  padding: 15px;
+}
 .ml-15 {
   margin-left: 15px;
-}
-.tasks {
-  margin-top: 10px;
 }
 </style>
