@@ -57,14 +57,14 @@ rails server
 - Framework: [Ruby on Rails](https://rubyonrails.org/)
 - Database: [Postgresql](https://www.postgresql.org/)
 
-### Features
+### ✔️ Features
 
-1. [x] Authentication.
-2. [x] Create organization, edit organization, delete organization.
-3. [x] Create many projects for organization, edit project, delete project.
-4. [x] Create Cards, edit card, delete card using javascript.
-5. [x] Create tasks in card, edit task, delete task using javascript.
-6. [x] Drag tasks to another card.
+1. [x] **Authentication.**
+2. [x] **Create organization, edit organization, delete organization.**
+3. [x] **Create many projects for organization, edit project, delete project.**
+4. [x] **Create Cards, edit card, delete card using javascript.**
+5. [x] **Create tasks in card, edit task, delete task using javascript.**
+6. [x] **Drag tasks to another card.**
 
 ### 🗒️ User stories
 
