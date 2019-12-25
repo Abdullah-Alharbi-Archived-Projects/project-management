@@ -1,9 +1,9 @@
 <%= form_for( :card, url: link, method: type) do |f| %>
     <div>
-        <%= f.text_field :title, placeholder: :title %>
+        <%= f.text_field :title, placeholder: :title, class: 'el-input__inner' %>
     </div> <br />
 
     <div>
-        <%= f.submit 'Submit' %>
+        <%= f.submit 'Submit', class: 'el-button el-button--primary' %>
     </div>
 <% end %>

@@ -1,6 +1,5 @@
 .navbar {
   display: flex;
-  //   flex-direction: column;
   justify-content: space-between;
   border-bottom: 2px solid #eee;
   padding: 12px;
@@ -14,6 +13,12 @@
     width: 275px;
 
     a {
+      color: #2980b9;
+      text-decoration: none;
+
+      &:hover {
+        color: #3498db;
+      }
     }
   }
 

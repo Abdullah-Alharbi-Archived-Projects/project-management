@@ -1,13 +1,13 @@
 <%= form_for( :project, url: link, method: type) do |f| %>
     <div>
-        <%= f.text_field :name, placeholder: :name %>
+        <%= f.text_field :name, placeholder: :name, class: 'el-input__inner' %>
     </div> <br />
 
     <div>
-        <%= f.text_field :wallpaper, placeholder: :wallpaper %>
+        <%= f.text_field :wallpaper, placeholder: :wallpaper, class: 'el-input__inner' %>
     </div> <br />
 
     <div>
-        <%= f.submit 'Submit' %>
+        <%= f.submit 'Submit', class: 'el-button el-button--primary' %>
     </div>
 <% end %>
