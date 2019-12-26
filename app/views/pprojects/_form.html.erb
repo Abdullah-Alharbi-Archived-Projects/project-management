@@ -1,17 +1,17 @@
 <%= form_for( :project, url: link, method: type) do |f| %>
     <div>
         <% if type == :post%>
-            <%= f.text_field :name, placeholder: :name, class: 'el-input__inner' %>
+            <%= f.text_field :name, placeholder: :name, class: 'el-input__inner w-250px' %>
         <% else %>
-            <%= f.text_field :name, placeholder: :name, class: 'el-input__inner', value: current_user.orgs.find(params[:org_id]).pprojects.find(params[:project_id]).name %>
+            <%= f.text_field :name, placeholder: :name, class: 'el-input__inner w-250px', value: current_user.orgs.find(params[:org_id]).pprojects.find(params[:project_id]).name %>
         <% end %>
     </div> <br />
 
     <div>
         <% if type == :post %>
-            <%= f.text_field :wallpaper, placeholder: :wallpaper, class: 'el-input__inner' %>
+            <%= f.text_field :wallpaper, placeholder: :wallpaper, class: 'el-input__inner w-250px' %>
         <% else %>
-            <%= f.text_field :wallpaper, placeholder: :wallpaper, class: 'el-input__inner', value: current_user.orgs.find(params[:org_id]).pprojects.find(params[:project_id]).wallpaper %>
+            <%= f.text_field :wallpaper, placeholder: :wallpaper, class: 'el-input__inner w-250px', value: current_user.orgs.find(params[:org_id]).pprojects.find(params[:project_id]).wallpaper %>
         <% end %>
 
     </div> <br />

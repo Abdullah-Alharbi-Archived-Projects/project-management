@@ -26,7 +26,7 @@
           ></el-input>
         </div>
 
-        <div class="avatar mb-15">
+        <!-- <div class="avatar mb-15">
           <el-input
             placeholder="Avatar"
             name="user[avatar]"
@@ -35,7 +35,7 @@
             type="text"
             clearable
           ></el-input>
-        </div>
+        </div>-->
 
         <div class="password mb-15">
           <el-input
@@ -67,8 +67,7 @@
                 native-type="submit"
                 type="primary"
                 @click.prevent="redirect_to_sign_in"
-                >Sign in</el-button
-              >
+              >Sign in</el-button>
             </el-col>
           </el-row>
         </div>

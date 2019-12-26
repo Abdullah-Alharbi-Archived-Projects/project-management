@@ -5,6 +5,9 @@ input[type="text"]:not(.new-task):not(.el-input__inner) {
   width: 250px;
 }
 
+.w-250px {
+  width: 250px !important;
+}
 .abs-left {
   position: absolute;
   right: 25px;
