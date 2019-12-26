@@ -54,6 +54,7 @@ rails server
 - Front End Framework: [Vue.js](https://vuejs.org/)
 - Bundler: [Webpack](https://webpack.js.org/)
 - Component Framework: [Element UI](https://element.eleme.io/#/en-US)
+- Grid System: [Bootstrap-Grid](https://getbootstrap.com/docs/4.0/layout/grid/)
 
 ### 💎 Back end
 
