@@ -1,47 +1,51 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>PMT</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap-grid.css" integrity="sha256-ioAA5G7gdssuN24SL2ByxTMiyg5m5PnP3I4TS5hNIYA=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap-grid.min.css">
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'vue' %>
 
 
-  </head>
+</head>
 
-  <body>
+<body>
     <div id="app">
-      <el-container>
-        <el-header>
-          <div class="navbar">
-            <div>
-              <%= link_to  "Home", root_path %>
-              <% if user_signed_in? %>
-                <%= link_to  "Organization", orgs_path %>
-              <% end %> 
-            </div>
-            <div class="left">
-              <% if user_signed_in? %>
-                  <strong>Welcome, <%= current_user.name %></strong>
-                  <%= link_to  "Sign out", destroy_user_session_path, method: :delete %>
-              <% else %>
-                  <%= link_to  "Sign in", new_user_session_path %>
-              <% end %>
-            </div>
-          </div>
-        </el-header>
+        <el-container>
+            <el-header>
+                <div class="navbar">
+                    <div>
+                        <%= link_to  "Home", root_path, data: { turbolinks: true } %>
+                        <% if user_signed_in? %>
+                        <%= link_to  "Organization", orgs_path %>
+                        <% end %>
+                    </div>
+                    <div class="left">
+                        <% if user_signed_in? %>
+                        <strong>Welcome, <%= current_user.name %></strong>
+                        <%= link_to  "Sign out", destroy_user_session_path, method: :delete, data: { turbolinks: true } %>
+                        <% else %>
+                        <%= link_to  "Sign in", new_user_session_path, data: { turbolinks: true } %>
+                        <% end %>
+                    </div>
+                </div>
+            </el-header>
 
-        <el-main>
-          <%= render "layouts/alert" %>
+            <el-main>
+                <%= render "layouts/alert" %>
 
-          <%= yield %>
-        </el-main>
-      </el-container>
+                <%= yield %>
+            </el-main>
+        </el-container>
     </div>
-  </body>
+</body>
+
 </html>
