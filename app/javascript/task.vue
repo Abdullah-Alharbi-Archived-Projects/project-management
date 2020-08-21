@@ -1,18 +1,16 @@
 <template>
   <div class="task" @dblclick="onDbClick">
-    <strong>id: {{ task.id }}</strong>
-    <br />
     <strong class="name" v-if="!editMode">{{ task.name }}</strong>
     <div class="edit-mode" v-else>
       <div class="flex">
         <input
           type="text"
           placeholder="Edit Task name"
-          v-model="task.name"
+          v-model="newName"
           @keyup.enter="enter"
-          @keyup.esc="editMode = false"
+          @keyup.esc="clear"
           class="input"
-          :autofocus="true"
+          ref="editable"
         />
 
         <el-button
@@ -36,15 +34,23 @@ export default {
   props: ["task"],
   data() {
     return {
-      editMode: false
+      editMode: false,
+      newName: `${this.$props.task.name}`,
     };
   },
   methods: {
     onDbClick() {
       this.$data.editMode = true;
+      this.$nextTick(() => this.$refs.editable.focus());
+    },
+    clear() {
+      this.editMode = false;
+      this.newName = `${this.$props.task.name}`;
     },
     enter() {
       this.$data.editMode = false;
+      this.$props.task.name = this.newName;
+
       // raise event to parent -> card
       this.$emit("update-task", this.$props.task);
     },
@@ -54,7 +60,7 @@ export default {
         const response = await fetch(
           window.location.pathname + `/${task.card_id}/tasks/${task.id}/`,
           {
-            method: "DELETE"
+            method: "DELETE",
           }
         );
         console.log(response);
@@ -67,8 +73,8 @@ export default {
           window.location.pathname + `/${task.card_id}/tasks/`
         );
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

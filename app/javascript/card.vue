@@ -7,11 +7,11 @@
           <input
             type="text"
             placeholder="Edit Card name"
-            v-model="card.title"
+            v-model="newTitle"
             @keyup.enter="enter"
-            @keyup.esc="editCard = false"
+            @keyup.esc="clear"
             class="input"
-            :autofocus="true"
+            ref="editable"
           />
 
           <el-button
@@ -56,31 +56,41 @@ export default {
   props: ["card"],
   data() {
     return {
-      editCard: false
+      editCard: false,
+      newTitle: `${this.$props.card.title}`,
     };
   },
   methods: {
     destroyTask(task) {
       const card = this.$props.card;
-      card.tasks = card.tasks.filter(t => t.id !== task.id);
+      card.tasks = card.tasks.filter((t) => t.id !== task.id);
     },
     addTask(task) {
       const card = this.$props.card;
-      console.log(task);
       card.tasks.push(task);
     },
+    clear() {
+      this.editCard = false;
+      this.newTitle = `${this.$props.card.title}`;
+    },
     updateTask(task) {
-      const url = this.generate(task);
+      const location = window.location.href.split("/");
+
+      const org_id = location[4];
+      const project_id = location[6];
+
+      const url =
+        window.location.pathname + `/${task.card_id}/tasks/${task.id}`;
 
       fetch(url, {
         method: "PATCH",
         body: urlencoded({
-          task: { name: task.name, position: task.position }
+          task: { name: task.name, position: task.position },
         }),
-        headers: { "Content-Type": "application/x-www-form-urlencoded" }
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
       })
-        .then(response => response.json())
-        .catch(err => console.log);
+        .then((response) => response.json())
+        .catch((err) => console.log);
     },
     log({ added, moved }) {
       if (added) {
@@ -89,21 +99,27 @@ export default {
 
       if (moved) {
         this._send(moved);
-        console.log(moved);
       }
     },
     _send(data) {
       const task = data.element;
-      task.position = data.newIndex;
-      console.log(task.position);
+      task.position = data.newIndex == 0 ? 1 : data.newIndex - 1;
+      const old_card_id = task.card_id;
+      task.card_id = this.card.id;
 
-      this.$emit("moved-task", task); // raise event to parent
+      this.$emit("moved-task", {
+        task,
+        card_id: this.card.id,
+        old_card_id,
+      }); // raise event to parent
     },
     onDbClick() {
       this.$data.editCard = true;
+      this.$nextTick(() => this.$refs.editable.focus());
     },
     enter() {
       this.$data.editCard = false;
+      this.$props.card.title = this.newTitle;
       // raise event to parent -> card
       this.$emit("update-card", this.$props.card);
     },
@@ -113,7 +129,7 @@ export default {
         const response = await fetch(
           window.location.pathname + `/${card.id}/`,
           {
-            method: "DELETE"
+            method: "DELETE",
           }
         );
         console.log(response);
@@ -123,9 +139,9 @@ export default {
       } catch (error) {
         console.log(error, window.location.pathname + `/${card.id}/cards/`);
       }
-    }
+    },
   },
-  components: { CreateTask, Task, draggable }
+  components: { CreateTask, Task, draggable },
 };
 </script>
 
