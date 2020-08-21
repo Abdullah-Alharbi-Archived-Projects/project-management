@@ -2,10 +2,6 @@
 
 **this project is a clone of trello.**
 
-### Live
-
-[Live Preview](https://secret-depths-08191.herokuapp.com/)
-
 ## 🤔 How to install
 
 1. check your ruby version by running this command in the terminal:
